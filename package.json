@@ -8,13 +8,14 @@
   },
   "keywords": [
     "rcom",
-    "restful api",
+    "restful api"
   ],
   "author": "Yufei.Ren",
   "license": "ISC",
   "dependencies": {
     "memcached": "^2.2.2",
     "request": "^2.81.0",
-    "restify": "^5.0.1"
+    "restify": "^5.0.1",
+    "underscore": "^1.8.3"
   }
 }
