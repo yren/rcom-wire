@@ -1,0 +1,20 @@
+{
+  "name": "rcom-wire",
+  "version": "0.0.1",
+  "description": "rcom api project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rcom",
+    "restful api",
+  ],
+  "author": "Yufei.Ren",
+  "license": "ISC",
+  "dependencies": {
+    "memcached": "^2.2.2",
+    "request": "^2.81.0",
+    "restify": "^5.0.1"
+  }
+}
