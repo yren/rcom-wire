@@ -10,12 +10,20 @@
     "rcom",
     "restful api"
   ],
-  "author": "Yufei.Ren",
+  "author": [
+    {
+      "Name": "Yufei Ren"
+    }
+  ],
   "license": "ISC",
   "dependencies": {
     "memcached": "^2.2.2",
     "request": "^2.81.0",
     "restify": "^5.0.1",
     "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "nodeunit": "^0.11.1",
+    "sinon": "^3.1.0"
   }
 }
