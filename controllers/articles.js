@@ -12,6 +12,7 @@ Articles.prototype = new BaseController();
 
 module.exports = function(lib) {
   var controller = new Articles();
+  
   controller.addAction({
     'path': '/channelarticles/{edition}/{channel}',
     'method': 'GET',

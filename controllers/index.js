@@ -1,5 +1,5 @@
 'use strict';
 
-module.export = {
-  Articles: './articles'
+module.exports = {
+  Articles: require('./articles.js')
 }
