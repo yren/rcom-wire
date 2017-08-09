@@ -1,3 +1,5 @@
+'use strict'
+
 module.exports = {
   server: {
     name: 'Rcom Wire API',
