@@ -1,8 +1,11 @@
 'use strict';
 
-var restify = require("restify"),
-  swagger = require("swagger-node-restify"),
-  config = require('./config/config');
+var restify = require('restify'),
+  swagger = require('swagger-node-restify'),
+  lib = require('./lib'),
+  config = lib.config;
+  
+console.log(config);
 
 var server = restify.createServer(config.server);
 server.use(restify.plugins.queryParser());
