@@ -20,6 +20,7 @@
     "memcached": "^2.2.2",
     "request": "^2.81.0",
     "restify": "^5.0.1",
+    "swagger-node-restify": "^0.1.2",
     "underscore": "^1.8.3"
   },
   "devDependencies": {
