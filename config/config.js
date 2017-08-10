@@ -3,7 +3,6 @@
 module.exports = {
   server: {
     name: 'Rcom Wire API',
-    version: '0.0.1',
     port: 3000
   },
   memcached: {
