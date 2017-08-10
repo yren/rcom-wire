@@ -7,6 +7,8 @@ var restify = require('restify'),
   config = lib.config;
 
 var server = restify.createServer(config.server);
+//cleans up duplicate or trailing / on the URL
+server.pre(restify.pre.sanitizePath());
 
 server.use(restify.plugins.queryParser());
 server.use(restify.plugins.bodyParser());
