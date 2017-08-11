@@ -15,11 +15,11 @@ module.exports = function(lib) {
     memcached = lib.memcached();
   
   controller.addAction({
-    'path': '/v1/channelarticles/{edition}/{channel}',
+    'path': '/channelarticles/{edition}/{channel}',
     'method': 'GET',
     'summary': 'Return list of channel articles',
     'params': [ swagger.pathParam('edition', 'artciel edtion','string'), swagger.pathParam('channel', 'artciel channel','string')],
-    'nickname': 'v1.getChannelArticles'
+    'nickname': 'getChannelArticles'
   }, function(req, res, next) {
     var edition = req.params.edition;
     var channel = req.params.channel;
