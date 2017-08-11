@@ -12,13 +12,20 @@ Articles.prototype = new BaseController();
 
 module.exports = function(lib) {
   var controller = new Articles(),
+    helpers = lib.helpers,
     memcached = lib.memcached();
   
   controller.addAction({
     'path': '/channelarticles/{edition}/{channel}',
     'method': 'GET',
     'summary': 'Return list of channel articles',
-    'params': [ swagger.pathParam('edition', 'artciel edtion','string'), swagger.pathParam('channel', 'artciel channel','string')],
+    'params': [
+      //pathParam: name, dataType, description, allowableValues, defaultValue
+      helpers.pathParam('edition', 'string', 'artciel edtion'),
+      helpers.pathParam('channel', 'string', 'article channel'),
+      //queryParam: name, dataType, description, required, defaultValue, allowableValues, allowMultiple
+      helpers.queryParam('count', 'date', 'article from time', true, 10)
+    ],
     'nickname': 'getChannelArticles'
   }, function(req, res, next) {
     var edition = req.params.edition;
