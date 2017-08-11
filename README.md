@@ -22,6 +22,16 @@ This folder contain code for controllers. It also have
 
 * models:
 
+## start
+```
+node index.js
+## or
+npm start
+```
+
+## swagger ui for api docs
+* http://localhost:3000/swagger-ui
+
 ## tech reference
 * http://restify.com/
 * https://github.com/request/request
