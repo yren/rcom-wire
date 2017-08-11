@@ -11,7 +11,8 @@ function Articles() {
 Articles.prototype = new BaseController();
 
 module.exports = function(lib) {
-  var controller = new Articles();
+  var controller = new Articles(),
+    memcached = lib.memcached();
   
   controller.addAction({
     'path': '/v1/channelarticles/{edition}/{channel}',
@@ -22,9 +23,23 @@ module.exports = function(lib) {
   }, function(req, res, next) {
     var edition = req.params.edition;
     var channel = req.params.channel;
-    console.log('edition: ' + edition);
-    console.log('channel: ' + channel);
-    res.send(edition + ':' +channel);
+    var path = req.path();
+    var key = path;
+    memcached.get(key, function(err, data){
+      if (data) {
+        console.log('get content from memcached');
+        res.send('memcached response: ' + data);
+      } else {
+        var value = 'edition: ' + edition + ' channel: ' + channel + ' path: ' + path;
+        res.send(value);
+        memcached.set(key, value, 60000, function(err) {
+          if (err) {
+            console.log('save memcached err, key: ' + key);
+          }
+        })
+      }
+    });
+    
     return next();
   });
   
