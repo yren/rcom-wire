@@ -16,8 +16,9 @@ server.use(restify.plugins.bodyParser());
 server.get(/^\/swagger-ui(\/.*)?/, restify.plugins.serveStatic({
  	directory: __dirname + '/',
  	default: 'index.html'
- }))
+}));
 
+swagger.addModels(lib.schemas);
 swagger.setAppHandler(server);
 lib.helpers.setupRoutes(server, swagger, lib);
 swagger.configureSwaggerPaths("", "/api-docs", "");
