@@ -9,6 +9,10 @@ module.exports = {
   },
   memcached: {
     host: '127.0.0.1:11211',
+    options: {
+      poolSize: 20,
+      timeout: 5000
+    },
     //edition, channel, count
     keyformat: {
       //edition, channel, count
