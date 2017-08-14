@@ -24,7 +24,7 @@ module.exports = function(lib) {
       helpers.pathParam('edition', 'string', 'artciel edtion'),
       helpers.pathParam('channel', 'string', 'article channel'),
       //queryParam: name, dataType, description, required, defaultValue, allowableValues, allowMultiple
-      helpers.queryParam('count', 'date', 'article from time', true, 10)
+      helpers.queryParam('count', 'int', 'article number, default 10', false)
     ],
     'nickname': 'getChannelArticles'
   }, function(req, res, next) {
