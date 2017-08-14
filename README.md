@@ -9,6 +9,7 @@ npm install underscore@1.8.3 --save
 npm install swagger-node-restify@0.1.2  --save
 
 ## unit test
+npm install mocha -g
 npm install mocha@3.5.0 --save-dev
 npm install sinon@3.1.0 --save-dev
 
