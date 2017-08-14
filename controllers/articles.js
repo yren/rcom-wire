@@ -30,6 +30,7 @@ module.exports = function(lib) {
   }, function(req, res, next) {
     var edition = req.params.edition;
     var channel = req.params.channel;
+    var count = req.query.count;
     var path = req.path();
     var key = path;
     memcached.get(key, function(err, data){
@@ -37,7 +38,7 @@ module.exports = function(lib) {
         console.log('get content from memcached');
         res.send('memcached response: ' + data);
       } else {
-        var value = 'edition: ' + edition + ' channel: ' + channel + ' path: ' + path;
+        var value = 'edition: ' + edition + ' channel: ' + channel + ' path: ' + path + 'count: ' + count;
         res.send(value);
         memcached.set(key, value, 60000, function(err) {
           if (err) {
