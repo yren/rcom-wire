@@ -14,7 +14,7 @@ Wires.prototype = new BaseController();
 module.exports = function(lib) {
   var controller = new Wires(),
     helpers = lib.helpers,
-    memcached = lib.memcached(),
+    memcached = lib.memcachedutil.memcached,
     keyformat = lib.config.memcached.keyformat;
   
   controller.addAction({
