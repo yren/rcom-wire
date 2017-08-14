@@ -33,6 +33,9 @@ npm start
 ## swagger ui for api docs
 * http://localhost:3000/swagger-ui
 
+## TODO
+* api version use path /v1 or use header version 1.0.0 ?
+
 ## tech reference
 * http://restify.com/
 * https://github.com/request/request
