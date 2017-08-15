@@ -3,7 +3,6 @@
 var BaseController = require('./basecontroller'),
   _ = require('underscore'),
   request = require('request'),
-  util = require('util'),
   swagger = require('swagger-node-restify');
 
 function Wires() {
@@ -14,8 +13,8 @@ Wires.prototype = new BaseController();
 module.exports = function(lib) {
   var controller = new Wires(),
     helpers = lib.helpers,
-    memcached = lib.memcachedutil.memcached,
-    keyformat = lib.config.memcached.keyformat;
+    memcachedutil = lib.memcachedutil,
+    memcached = memcachedutil.memcached;
   
   controller.addAction({
     'path': '/wire',
@@ -45,7 +44,7 @@ module.exports = function(lib) {
       if (!count) {
         count = 20;
       }
-      var cacheKey = util.format(keyformat.wireitem, edition, chan, count);
+      var cacheKey = memcachedutil.getWireCacheKey(edition, chan, count, since, until);
       res.send('cacheKey:' + cacheKey);
       next();
   });
