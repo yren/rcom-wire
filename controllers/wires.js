@@ -3,6 +3,7 @@
 var BaseController = require('./basecontroller'),
   _ = require('underscore'),
   request = require('request'),
+  errors = require('restify-errors'),
   swagger = require('swagger-node-restify');
 
 function Wires() {
@@ -45,7 +46,9 @@ module.exports = function(lib) {
         count = 20;
       }
       var cacheKey = memcachedutil.getWireCacheKey(edition, chan, count, since, until);
-      res.send('cacheKey:' + cacheKey);
+      memcached.get(cacheKey, function(err, data) {
+        res.send(new errors.InternalServerError('memcached error. key: ' + cacheKey));
+      });
       next();
   });
   
