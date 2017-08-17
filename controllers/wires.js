@@ -15,6 +15,7 @@ module.exports = function(lib) {
   var controller = new Wires(),
     helpers = lib.helpers,
     memcachedutil = lib.memcachedutil,
+    spotlight = lib.spotlight,
     memcached = memcachedutil.memcached;
   
   controller.addAction({
@@ -47,7 +48,19 @@ module.exports = function(lib) {
       }
       var cacheKey = memcachedutil.getWireCacheKey(edition, chan, count, since, until);
       memcached.get(cacheKey, function(err, data) {
-        res.send(new errors.InternalServerError('memcached error. key: ' + cacheKey));
+        if (data) {
+          res.send(data);
+        } else {
+          spotlight.getChannelItems(lib, chan, count, function(body) {
+            memcached.set(cacheKey, body, 60, function(err) {
+              if (!err) {
+                console.log('set body to memcached');
+              }
+            })
+            console.log('send body from spotlight');
+            res.send(body);
+          })
+        }
       });
       next();
   });
