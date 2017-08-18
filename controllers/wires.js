@@ -49,6 +49,7 @@ module.exports = function(lib) {
       var cacheKey = memcachedutil.getWireCacheKey(edition, chan, count, since, until);
       memcached.get(cacheKey, function(err, data) {
         if (data) {
+          console.log(helpers.inspectObj(data));
           res.send(data);
         } else {
           spotlight.getChannelItems(lib, chan, count, function(body) {
@@ -58,6 +59,7 @@ module.exports = function(lib) {
               }
             })
             console.log('send body from spotlight');
+            console.log(helpers.inspectObj(body));
             res.send(body);
           })
         }
