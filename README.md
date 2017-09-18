@@ -26,6 +26,7 @@ npm install swagger-node-restify@0.1.2  --save
 npm install mocha -g
 npm install mocha@3.5.0 --save-dev
 npm install sinon@3.1.0 --save-dev
+npm install jshint@2.9.5 --save-dev
 
 ```
 
