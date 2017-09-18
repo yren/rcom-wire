@@ -28,6 +28,7 @@ npm install gulp@3.9.1 -g
 npm install mocha@3.5.0 --save-dev
 npm install sinon@3.1.0 --save-dev
 npm install jshint@2.9.5 --save-dev
+npm install gulp@3.9.1 --save-dev
 npm install gulp-jshint@2.0.4 --save-dev
 npm install jshint-stylish@2.2.1 --save-dev
 npm install gulp-mocha@4.3.1 --save-dev
