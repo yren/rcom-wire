@@ -24,10 +24,13 @@ npm install swagger-node-restify@0.1.2  --save
 
 ## unit test
 npm install mocha -g
+npm install gulp@3.9.1 -g
 npm install mocha@3.5.0 --save-dev
 npm install sinon@3.1.0 --save-dev
 npm install jshint@2.9.5 --save-dev
-
+npm install gulp-jshint@2.0.4 --save-dev
+npm install jshint-stylish@2.2.1 --save-dev
+npm install gulp-mocha@4.3.1 --save-dev
 ```
 
 ## folder structure
@@ -58,6 +61,7 @@ npm start
 * http://underscorejs.org/
 * https://github.com/caolan/nodeunit
 * https://github.com/sinonjs/sinon
+* https://github.com/jimmyhchan/gulp-jshint-mocha-boilerplate
 
 ## travis integrate
 * https://travis-ci.org/yren/rcom-wire

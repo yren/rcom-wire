@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "mocha"
+    "test": "gulp test"
   },
   "keywords": [
     "rcom",
@@ -26,7 +26,10 @@
     "underscore": "^1.8.3"
   },
   "devDependencies": {
+    "gulp-jshint": "^2.0.4",
+    "gulp-mocha": "^4.3.1",
     "jshint": "^2.9.5",
+    "jshint-stylish": "^2.2.1",
     "mocha": "^3.5.0",
     "sinon": "^3.1.0"
   }

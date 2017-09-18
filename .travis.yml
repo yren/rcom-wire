@@ -3,3 +3,4 @@ node_js:
   - 4.8.4
 before_script:
   - npm install mocha -g
+  - npm install gulp -g
