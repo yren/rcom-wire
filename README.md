@@ -1,5 +1,18 @@
 # Rcom Api project
 
+<div align="center">
+    <a href="https://travis-ci.org/">
+        <img src="https://travis-ci.com/images/logos/Tessa-pride-4.svg" width="175">
+    </a>
+</div>
+<br />
+
+<div align="center">
+
+[![Build Status](https://travis-ci.org/yren/hang.svg?branch=master)](https://travis-ci.org/yren/hang)
+
+</div>
+
 ## dependency
 ```
 npm install restify@5.0.1 --save
@@ -44,3 +57,6 @@ npm start
 * http://underscorejs.org/
 * https://github.com/caolan/nodeunit
 * https://github.com/sinonjs/sinon
+
+## travis integrate
+* https://travis-ci.org/yren/rcom-wire
