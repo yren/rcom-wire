@@ -9,7 +9,7 @@
 
 <div align="center">
 
-[![Build Status](https://travis-ci.org/yren/hang.svg?branch=master)](https://travis-ci.org/yren/hang)
+[![Build Status](https://travis-ci.org/yren/rcom-wire.svg?branch=master)](https://travis-ci.org/yren/rcom-wire)
 
 </div>
 
