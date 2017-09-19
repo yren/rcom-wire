@@ -49,18 +49,19 @@ module.exports = function(lib) {
       var cacheKey = memcachedutil.getWireCacheKey(edition, chan, count, since, until);
       memcached.get(cacheKey, function(err, data) {
         if (data) {
-          console.log(helpers.inspectObj(data));
+          dealWith(data);
           res.send(data);
         } else {
           spotlight.getChannelItems(lib, chan, count, function(body) {
-            memcached.set(cacheKey, body, 60, function(err) {
+            
+            console.log('send body from spotlight');
+            var wireItems = dealWith(body);
+            memcached.set(cacheKey, wireItems, 60, function(err) {
               if (!err) {
                 console.log('set body to memcached');
               }
             })
-            console.log('send body from spotlight');
-            console.log(helpers.inspectObj(body));
-            res.send(body);
+            res.send(wireItems);
           })
         }
       });
@@ -68,4 +69,22 @@ module.exports = function(lib) {
   });
   
   return controller;
+}
+
+function dealWith(body) {
+  var items = [],
+    helpers = require('../lib/helpers'),
+    wireItems = [];
+  if (body && body.items && body.items.length > 1) {
+    items = body.items;
+    for (var i = 0; i < items.length; i++) {
+      var wire = {},
+        story = items[i];
+      console.log(helpers.inspectObj(story.guid));
+      wire.wireitem_id = '';
+      wire.wireitem_cid = 'story:' + story.guid;
+      wireItems.push(wire);
+    }
+  }
+  return wireItems;
 }
